@@ -18,7 +18,8 @@
     "concurrently": "^5.2.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.3.16",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.15",
     "react": "^16.6.3",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
@@ -28,3 +29,4 @@
     "nodemon": "^2.0.7"
   }
 }
+
