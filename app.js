@@ -1,11 +1,24 @@
+const express = require('express')
+const mongoose = require('mongoose')
+const routes = require('./routes')
+const app = express()
+const PORT = process.env.PORT || 3001
 
-const express = require('express');
-const connectDB = require('./config/db');
+// Define middleware
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-const app = express();
+// Serves static assets
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(__dirname + '/client/build'))
+}
 
-app.get('/', (req, res) => res.send('Hello world!'));
+// API routes
+app.use(routes);
 
-const port = process.env.PORT || 8082;
+// Mongo DB Connection
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks')
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(PORT, () => {
+  console.log(`API server now on port:${PORT}`)
+})
