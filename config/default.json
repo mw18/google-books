@@ -1,0 +1,4 @@
+{
+    "mongoURI":
+      "mongodb+srv://dbBooks:dbBooksPassword@cluster0.speoa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+  }
